@@ -9,5 +9,5 @@ requirements = [x.strip() for x in content]
 
 setup(name='M05-miniproject',
       description="package description",
-      packages=find_packages(), # NEW: find packages automatically
-      install_requires=requirements) # NEW
+      packages=find_packages(),
+      install_requires=requirements)
