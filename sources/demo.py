@@ -1,8 +1,7 @@
 # this small snippet of code intends to demonstrate the use of the linter
-import sys  # this must flag F401 - unused import
 import os
 
-# this must flag E302 - expected 2 blank lines, found 1
+
 def main():
     # first, some code that must be ok with the linter
     # test if the ressources exists in the ressources/raw_data folder
@@ -16,6 +15,4 @@ def main():
     # then, some code that must be flagged by the linter
     a = 0
     b = 1
-    # this must flag F841 - local variable 'c' is assigned to but never used
-    c = a+b
-# there is no blank line at the end of the file -> this must flag W292 - no newline at end of file
+    print(a+b)
