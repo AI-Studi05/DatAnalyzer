@@ -29,3 +29,11 @@ Using *dev/amazing_feature* or *hotfix/issue_66*, *gui/input_fields* really help
 There is no limit as for the commit messages policy but the basics mentionned here covers many cases.
 
 For more, read [this](https://dev.to/couchcamote/git-branching-name-convention-cch) article.
+
+### Virtual environnement
+The virtual environnement could be created based on the ```sources\requirement.txt```.
+
+Using ```conda create --name <env> --requirements.txt```.
+
+To update the requirements, please use ```pip list --format=freeze > requirements.txt```.
+
