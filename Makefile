@@ -13,3 +13,6 @@ dep:
 	@echo "PIPENV_VENV_IN_PROJECT=1" > .env
 
 welcome: dep .create_env
+
+lint:
+	@flake8 ... --count --max-complexity=10 --max-line-length=127 --statistics
