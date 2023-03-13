@@ -1,7 +1,7 @@
 .. image:: https://github.com/AI-Studi05/DatAnalyzer/actions/workflows/linter.yml/badge.svg?branch=main
    :target: https://github.com/AI-Studi05/DatAnalyzer/actions/workflows/linter.yml
 .. image:: https://img.shields.io/badge/docs-latest-orange.svg
-   :target: https://ai-studi05.github.io/DatAnalyzer/readme.rst
+   :target: https://ai-studi05.github.io/DatAnalyzer/index.html
 .. image:: https://img.shields.io/badge/github-project-0000c0.svg
    :target: https://github.com/AI-Studi05/DatAnalyzer
 
