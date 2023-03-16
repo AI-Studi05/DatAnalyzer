@@ -23,6 +23,13 @@ extensions = [
 
 exclude_patterns = ["README.rst"]
 
+# -- Options for autodoc -----------------------------------------------------
+
+autosummary_generate = True
+templates_path = ["_templates"]
+source_suffix = ".rst"
+master_doc = "index"
+
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = "sphinx_rtd_theme"
