@@ -22,3 +22,17 @@ jobs:
     - name: Analysing the code with flake8
       run: |
         flake8 . --count --max-complexity=10 --max-line-length=127 --statistics
+    - name: Build documentation
+      run: |
+        rm -rf ./docs/apidoc
+        sphinx-apidoc src/ -o ./docs/apidoc --no-toc --separate --module-first
+        sphinx-build docs sphinx
+        touch sphinx/.nojekyll
+    - name: Deploy documentation to GitHub Pages
+        if: success()  &&  github.ref == 'refs/heads/main'
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: sphinx
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
