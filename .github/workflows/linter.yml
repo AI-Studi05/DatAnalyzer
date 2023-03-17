@@ -17,16 +17,14 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8
+        pip install flake8 sphinx sphinx_rtd_theme
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Analysing the code with flake8
       run: |
         flake8 . --count --max-complexity=10 --max-line-length=127 --statistics
     - name: Build documentation
       run: |
-        rm -rf ./docs/apidoc
-        sphinx-apidoc src/ -o ./docs/apidoc --no-toc --separate --module-first
-        sphinx-build docs sphinx
+        sphinx-build docs _build
         touch sphinx/.nojekyll
     - name: Deploy documentation to GitHub Pages
       if: success()  &&  github.ref == 'refs/heads/main'
