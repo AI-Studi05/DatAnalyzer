@@ -1,6 +1,6 @@
 name: Documentation
 
-on: [push]
+on: [push, pull_request, workflow_dispatch]
 
 permissions:
     contents: write
@@ -22,10 +22,10 @@ jobs:
           touch _build/.nojekyll
 
       - name: Deploy
-        if: success()  &&  github.ref == 'refs/heads/main'
-        uses: crazy-max/ghaction-github-pages@v3
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/bugfix/documentation' }}
         with:
-          target_branch: gh-pages
-          build_dir: _build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _build/
+          force_orphan: true
