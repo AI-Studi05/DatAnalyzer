@@ -25,7 +25,6 @@ jobs:
     - name: Build documentation
       run: |
         sphinx-build docs _build
-        touch sphinx/.nojekyll
     - name: Deploy documentation to GitHub Pages
       if: success()  &&  github.ref == 'refs/heads/main'
       uses: crazy-max/ghaction-github-pages@v3
