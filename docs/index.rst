@@ -12,4 +12,5 @@ Content
 .. toctree::
    :maxdepth: 2
 
-   docs/index
+   continuous_integration
+   contributing
