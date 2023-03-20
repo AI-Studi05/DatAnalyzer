@@ -1,6 +1,4 @@
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import PolynomialFeatures
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, PolynomialFeatures
 
 
 class SmoothData(StandardScaler, MinMaxScaler, PolynomialFeatures):
