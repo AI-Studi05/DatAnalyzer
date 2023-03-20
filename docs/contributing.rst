@@ -17,11 +17,17 @@ Please use them in your commit messages.
 | Type | Description                  |
 +======+==============================+
 | ADD  | something new is added       |
++------+------------------------------+
 | REM  | something was removed        |
++------+------------------------------+
 | CHG  | something was changed        |
++------+------------------------------+
 | FIX  | problem was corrected        |
++------+------------------------------+
 | MOV  | something was moved          |
++------+------------------------------+
 | NOTE | additional important message |
++------+------------------------------+
 | WARN | additional warning message   |
 +------+------------------------------+
 
@@ -40,3 +46,6 @@ One can start to work by setting up the environment and installing the dependenc
 .. code-block:: bash
 
     make welcome
+
+This command will setup the Python virtual environment and install pre-commit hooks.
+With this package, you won't be able to commit if the code is not formatted correctly (*actually reject the git commit*).
