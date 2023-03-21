@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-from sklearn.preprocessing import MinMaxScaler, StandardScaler, PolynomialFeatures
-=======
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import PolynomialFeatures
->>>>>>> 7233b1f ([FIX] correction for the linter)
 
 
 class SmoothData(StandardScaler, MinMaxScaler, PolynomialFeatures):
