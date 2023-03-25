@@ -18,7 +18,7 @@ jobs:
 
       - name: Sphinx build
         run: |
-          sphinx-apidoc DatAnalyzer/ -o ./_build/apidoc --no-toc --separate --module-first
+          sphinx-apidoc -o docs DatAnalyzer/ --separate --module-first
           sphinx-build docs _build
           touch _build/.nojekyll
 
