@@ -2,6 +2,7 @@ Continuous Integration
 ======================
 
 CI is done using GitHub Actions. The following actions are run:
+
 * linter
 * tests
 * coverage
