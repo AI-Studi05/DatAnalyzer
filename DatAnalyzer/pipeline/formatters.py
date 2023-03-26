@@ -12,9 +12,7 @@ class Data_Formating:
         """
         With the provided string, extract the path and the extension.
 
-        Parameters
-        ----------
-        path : str
+        :param str path: Path to the data
         """
         self.path = path
         self.extension = os.path.splitext(path)[1]
@@ -23,38 +21,13 @@ class Data_Formating:
         """
         Import the data from the path provided in the constructor.
 
-        Parameters
-        ----------
-        columns_name : list
-            List of the columns name. If None, the columns name will be
-            the default one.
+        :param list columns_name: List of the columns name
 
-        Returns
-        -------
-        data : pandas.DataFrame
-            Dataframe containing the data.
+        :return: Dataframe with the data
 
-        Raises
-        ------
-        ValueError
-            If the extension is not .csv or .data
+        :rtype: pandas.DataFrame
 
-        Examples
-        --------
-        >>> data = Data_Formating("data.csv")
-        >>> data.import_data()
-
-        >>> data = Data_Formating("data.data")
-        >>> data.import_data()
-
-        >>> data = Data_Formating("data.txt")
-        >>> data.import_data()
-        Traceback (most recent call last):
-        ...
-        ValueError: We can not import this type of Data
-
-        >>> data = Data_Formating("data.csv")
-        >>> data.import_data(columns_name=["a", "b", "c"])
+        :raises ValueError: If the extension is not .csv or .data
         """
 
         print(f"File extension: {self.extension}")
