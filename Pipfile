@@ -12,6 +12,7 @@ scikit-learn= "*"
 flake8 = "*"
 pre-commit= "*"
 pytest="*"
+pytest = "*"
 
 
 [requires]
