@@ -49,3 +49,6 @@ One can start to work by setting up the environment and installing the dependenc
 
 This command will setup the Python virtual environment and install pre-commit hooks.
 With this package, you won't be able to commit if the code is not formatted correctly (*actually reject the git commit*).
+
+It uses `pre-commit <https://pre-commit.com/>`_ to ensure that the code is formatted correctly.
+The configuration is in the ``.pre-commit-config.yaml`` file.
