@@ -30,6 +30,8 @@ jobs:
 
       - name: Coveralls
         uses: coverallsapp/github-action@v1
+        with:
+          path-to-lcov: coverage.lcov
 
       - name: Sphinx build
         run: |
