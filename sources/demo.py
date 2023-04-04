@@ -15,4 +15,4 @@ def main():
     # then, some code that must be flagged by the linter
     a = 0
     b = 1
-    print(a+b)
+    print(a + b)
