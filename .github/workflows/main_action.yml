@@ -24,17 +24,18 @@ jobs:
           pip install sphinx sphinx_rtd_theme
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Run all tests and upload coverage to coveralls
-        shell: bash -l {0}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COVERALLS_FLAG_NAME: ${{ matrix.python-version }}
-          COVERALLS_PARALLEL: true
-        run: |
-          # run tests
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
 
-          pip3 install --upgrade coveralls
-          coveralls --service=github
+      - name: npm install, make test-coverage
+        run: |
+          npm install
+          make test-coverage
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@v1
 
       - name: Sphinx build
         run: |

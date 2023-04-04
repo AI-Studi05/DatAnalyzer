@@ -1,3 +1,6 @@
+.. image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit
+   :target: https://github.com/pre-commit/pre-commit
+   :alt: pre-commit enbled status
 .. image:: https://results.pre-commit.ci/badge/github/AI-Studi05/DatAnalyzer/main.svg
    :target: https://results.pre-commit.ci/latest/github/AI-Studi05/DatAnalyzer/main
    :alt: pre-commit.ci status
