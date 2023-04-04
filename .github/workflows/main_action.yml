@@ -24,15 +24,9 @@ jobs:
           pip install sphinx sphinx_rtd_theme
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-
-      - name: npm install, make test-coverage
+      - name: Run unit tests
         run: |
-          npm install
-          make test-coverage
+          pytest
 
       - name: Coveralls
         uses: coverallsapp/github-action@v1
