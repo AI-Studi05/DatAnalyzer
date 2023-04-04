@@ -26,7 +26,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          coverage run -m pytest
+          pytest --cov-report lcov
 
       - name: Coveralls
         uses: coverallsapp/github-action@v1
