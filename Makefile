@@ -14,7 +14,7 @@ dep:
 	@pipenv shell
 
 packages:
-	@pipenv install --default
+	@pipenv install
 
 .dev:
 	@pipenv install --dev
