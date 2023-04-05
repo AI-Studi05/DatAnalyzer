@@ -6,20 +6,20 @@ cwd = os.path.dirname(__file__)
 
 DATAFILE = {
     "House": os.path.abspath(os.path.join(cwd, os.pardir, os.pardir, "ressources/raw_data/housing/housing.data")),
-    "White wine": os.path.abspath(os.path.join(cwd, os.pardir, os.pardir, "ressources/raw_data/wine/winequality-white.csv")),
-    "Red wine": os.path.abspath(os.path.join(cwd, os.pardir, os.pardir, "ressources/raw_data/wine/winequality-red.csv")),
+    "White_wine": os.path.abspath(os.path.join(cwd, os.pardir, os.pardir, "ressources/raw_data/wine/winequality-white.csv")),
+    "Red_wine": os.path.abspath(os.path.join(cwd, os.pardir, os.pardir, "ressources/raw_data/wine/winequality-red.csv")),
 }
 
 Y_DATAFILE = {
     "House": "MEDV",
-    "White wine": "quality",
-    "Red wine": "quality",
+    "White_wine": "quality",
+    "Red_wine": "quality",
 }
 
 COLUMN_NAME = {
     "House": ["CRIM", "ZN", "INDUS", "CHAS", "NOX", "RM", "AGE", "DIS", "RAD", "TAX", "PTRATIO", "B", "LSTAT", "MEDV"],
-    "White wine": None,
-    "Red wine": None,
+    "White_wine": None,
+    "Red_wine": None,
 }
 two_dirs_back = os.path.abspath(os.path.join(cwd, os.pardir, os.pardir))
 

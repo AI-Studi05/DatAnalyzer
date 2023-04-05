@@ -81,13 +81,69 @@ def all():
     return i
 
 
+def specific(protocol, metadata, scaling, model):
+    """Builds the first table of my report"""
+    i = 0
+    split_protocols = {
+        name_state: regression.SPLIT_PROTOCOLS[name_state]
+        for name_state in protocol
+        if name_state in regression.SPLIT_PROTOCOLS
+    }
+    datafile = {dataset: formatters.DATAFILE[dataset] for dataset in metadata if dataset in formatters.DATAFILE}
+    for name_of_state, state in split_protocols.items():
+        for dataset, path in datafile.items():
+            i += 1
+            print("\nTable %d: %s Dataset model for %s :" % (i, dataset, name_of_state))
+            print(60 * "-")
+            print(
+                "{:25s}".format(" "),
+                "{:25s}".format(" "),
+                "{:12s}".format("| Expl Var "),
+                "{:12s}".format("| r2"),
+                "{:12s}".format("| MAE"),
+                "{:12s}".format("| MSE"),
+                "{:12s}".format("| RMSE"),
+            )
+
+            for preprocess_method in scaling:
+                print(
+                    "{:25s}".format(preprocess_method),
+                    "{:25s}".format(" "),
+                    "{:12s}".format(" "),
+                    "{:12s}".format(" "),
+                    "{:12s}".format(" "),
+                    "{:12s}".format(" "),
+                    "{:12s}".format(" "),
+                )
+
+                for regression_type in model:
+                    result = process(
+                        path,
+                        formatters.Y_DATAFILE[dataset],
+                        preprocess_method,
+                        regression_type,
+                        state,
+                        column_name=formatters.COLUMN_NAME[dataset],
+                    )
+                    print(
+                        "{:25s}".format(" "),
+                        "{:25s}".format(regression_type),
+                        "{:12s}".format("| %f" % (result["explained_variance"])),
+                        "{:12s}".format("| %f" % (result["r2"])),
+                        "{:12s}".format("| %f" % (result["MAE"])),
+                        "{:12s}".format("| %f" % (result["MSE"])),
+                        "{:12s}".format("| %f" % (result["RMSE"])),
+                    )
+    return i
+
+
 def main():
     """Main function to be called from the command-line"""
 
     import argparse
 
     example_doc = """\
-examples:
+    examples:
     1. Returns all tables in the original report:
        $ rr-paper
     2. Only prints results for protocol "proto2":
@@ -107,9 +163,9 @@ examples:
     parser.add_argument(
         "-s",
         "--scaling",
-        choices=["min-max", "z-normalisation", "Polynomial"],
+        choices=["max_scaling", "z-normalisation", "polynomial_features"],
         nargs="*",
-        default=["min-max", "z-normalisation", "Polynomial"],
+        default=["min-max_scaling", "z-normalisation", "polynomial_features"],
         help="Choose the preprocessing method. If you choose '1', then "
         "you choose the min-max scaling method for your the dataset "
         "If you choose '2', then you chooses the z-normalisation scaling"
@@ -122,9 +178,9 @@ examples:
     parser.add_argument(
         "-p",
         "--protocol",
-        choices=["proto1", "proto2"],
+        choices=["Random_State_1", "Random_State_2", "Random_State_3"],
         nargs="*",
-        default=["proto1", "proto2"],
+        default=["Random_State_1", "Random_State_2", "Random_State_3"],
         help="Defines which protocol you want to use. We use three different "
         "random state for our result. Random state are 123, 456 and 789."
         "By default, if no specific method, it prints all protocols",
@@ -135,7 +191,7 @@ examples:
         "--dataset",
         choices=["House", "White_wine", "Red_wine"],
         nargs="*",
-        default=["House", "White wine", "Red wine"],
+        default=["House", "White_wine", "Red_wine"],
         help="Defines which Dataset you want to perform the regression. "
         "We use three different Dataset. House, which is the price of "
         "the house in Boston according to some criteria. White wine,"
@@ -155,12 +211,12 @@ examples:
         "model, and the Decision Tree Classifier.",
     )
 
-    # args = parser.parse_args()
+    args = parser.parse_args()
 
     # keeps a nice sequential table number
 
     if len(sys.argv) > 1:
-        None
+        specific(args.protocol, args.dataset, args.scaling, args.model)
     else:
         all()
 
