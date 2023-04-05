@@ -1,3 +1,6 @@
+Licenses
+========
+
 This project is licensed under the `WTFPL <http://www.wtfpl.net/>`_ license.
 So, as long as your are following the dependencies licenses, you can do whatever you want with this project.
 
