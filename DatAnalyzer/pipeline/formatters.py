@@ -33,7 +33,8 @@ class Data_Formating:
         """
         With the provided string, extract the path and the extension.
 
-        :param str path: Path to the data
+        :param path: Path to the data
+        :type path: str
         """
         self.path = path
         self.extension = os.path.splitext(path)[1]
@@ -42,10 +43,10 @@ class Data_Formating:
         """
         Import the data from the path provided in the constructor.
 
-        :param list columns_name: List of the columns name
+        :param columns_name: List of the columns name
+        :type columns_name: list
 
         :return: Dataframe with the data
-
         :rtype: pandas.DataFrame
 
         :raises ValueError: If the extension is not .csv or .data

@@ -12,7 +12,8 @@ class SmoothData(StandardScaler, MinMaxScaler, PolynomialFeatures):
         """
         With the provided string, extract the path and the extension.
 
-        :param str smooth_type: Type of smoothing
+        :param smooth_type: Type of smoothing
+        :type smooth_type: str
         """
         self.smooth_type = smooth_type
 
@@ -38,7 +39,10 @@ class SmoothData(StandardScaler, MinMaxScaler, PolynomialFeatures):
         Fit the data
 
         :param X: Data to fit
+        :type X: numpy.ndarray
+
         :param y: Target
+        :type y: numpy.ndarray
 
         :return: self
         :rtype: SmoothData
@@ -50,6 +54,7 @@ class SmoothData(StandardScaler, MinMaxScaler, PolynomialFeatures):
         Transform the data
 
         :param X: Data to transform
+        :type X: numpy.ndarray
 
         :return: Transformed data
         :rtype: numpy.ndarray
