@@ -1,5 +1,7 @@
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, PolynomialFeatures
 
+PPREPROCESS_PROTOCSOLS = ["min-max scaling", "z-normalisation", "polynomial features"]
+
 
 class SmoothData(StandardScaler, MinMaxScaler, PolynomialFeatures):
     """
