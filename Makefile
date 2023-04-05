@@ -13,7 +13,7 @@ dep:
 	@echo "PIPENV_VENV_IN_PROJECT=1" > .env
 
 .precommit:
-	@python3 pre-commit install
+	@pre-commit install
 
 welcome: dep .create_env .precommit
 
