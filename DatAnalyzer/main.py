@@ -19,18 +19,19 @@ def process(data_path, y_column, scaling_method, regression_model, random_state,
     # Smooth the data:
     smoothing = transformers.SmoothData(scaling_method).type_of_preprocess()
     X_train = smoothing.fit_transform(X_train)
+    X_test = smoothing.fit_transform(X_test)
 
     # train our model and predict
     model = regression.RegressionModel().regression(regression_model)
     model = model.fit(X_train, y_train)
     y_predict = model.predict(X_test)
-
+    print(len(y_test), len(y_predict))
     # Score and result of our model
     result = regression.RegressionModel().regression_results(y_test, y_predict)
     return result
 
 
-def all(tabnum, protocols):
+def all():
     """Builds the first table of my report"""
     step = 1
     for name_of_state, state in regression.SPLIT_PROTOCOLS.items():
@@ -54,7 +55,6 @@ def all(tabnum, protocols):
                     print(
                         ("%-15s" % regression_type),
                         "| %f" % (result["explained_variance"]),
-                        "| %f" % (result["mean_squared_log_error"]),
                         "| %f" % (result["r2"]),
                         "| %f" % (result["MAE"]),
                         "| %f" % (result["MSE"]),
@@ -89,8 +89,8 @@ examples:
     )
 
     parser.add_argument(
-        "-p",
-        "--preprocess",
+        "-s",
+        "--scaling",
         choices=["min-max", "z-normalisation", "Polynomial"],
         nargs="*",
         default=["min-max", "z-normalisation", "Polynomial"],
