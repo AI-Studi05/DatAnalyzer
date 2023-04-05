@@ -8,12 +8,13 @@ export PIPENV_VENV_IN_PROJECT=1
 dep:
 	@python3 -m pip install -U pip
 	@python3 -m pip install pipenv
+	@python3 -m pip install pre-commit
 
 .create_env:
 	@echo "PIPENV_VENV_IN_PROJECT=1" > .env
 
 .precommit:
-	@python3 pre-commit install
+	@pipenv pre-commit install
 
 welcome: dep .create_env .precommit
 
