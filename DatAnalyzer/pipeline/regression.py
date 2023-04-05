@@ -4,8 +4,8 @@ from sklearn.tree import DecisionTreeClassifier
 import sklearn.metrics as metrics
 import numpy as np
 
-REGRESSION_PROTOCOLS = ["Linear Regression", "Decision Tree Classifier"]
-SPLIT_PROTOCOLS = {"Random state 1": 123, "Random state 2": 456, "Random state 3": 789}
+REGRESSION_PROTOCOLS = ["Linear_Regression", "Decision_Tree_Classifier"]
+SPLIT_PROTOCOLS = {"Random_State_1": 123, "Random_State_2": 456, "Random_State_3": 789}
 
 
 class RegressionModel(LinearRegression, DecisionTreeClassifier):
@@ -58,9 +58,9 @@ class RegressionModel(LinearRegression, DecisionTreeClassifier):
         :raise ValueError: If the model is not supported
         """
         self.model = model
-        if model == "Linear Regression":
+        if model == "Linear_Regression":
             return self.linear_regression
-        elif model == "Decision Tree Classifier":
+        elif model == "Decision_Tree_Classifier":
             return self.decision_tree_classifier
         else:
             raise ValueError(f"This type of regression is not supported : {self.model}")

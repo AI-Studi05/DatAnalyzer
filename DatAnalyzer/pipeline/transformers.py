@@ -1,6 +1,6 @@
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, PolynomialFeatures
 
-PPREPROCESS_PROTOCSOLS = ["min-max scaling", "z-normalisation", "polynomial features"]
+PPREPROCESS_PROTOCSOLS = ["min-max_scaling", "z-normalisation", "polynomial_features"]
 
 
 class SmoothData(StandardScaler, MinMaxScaler, PolynomialFeatures):
@@ -24,11 +24,11 @@ class SmoothData(StandardScaler, MinMaxScaler, PolynomialFeatures):
         :return: Type of preprocessing
         :rtype: str
         """
-        if self.smooth_type == "min-max scaling":
+        if self.smooth_type == "min-max_scaling":
             scaler = MinMaxScaler()
         elif self.smooth_type == "z-normalisation":
             scaler = StandardScaler()
-        elif self.smooth_type == "polynomial features":
+        elif self.smooth_type == "polynomial_features":
             scaler = PolynomialFeatures()
         else:
             raise ValueError("The preprocessing method is not supported")
