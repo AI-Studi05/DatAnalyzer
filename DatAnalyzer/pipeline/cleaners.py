@@ -4,7 +4,8 @@ class CleanData:
 
     def drop_duplicated(self):
         self.nb_duplicate = self.X.duplicated().sum()
-        return self
+        x_cleaned = self.X.drop_duplicates()
+        return x_cleaned
 
     def missing_data(self, ascending=False):
         self.missingdata = self.isnull().sum().sort_values(ascending)
