@@ -11,11 +11,16 @@ dep:
 
 .create_env:
 	@echo "PIPENV_VENV_IN_PROJECT=1" > .env
+	@pipenv shell
 
-.precommit:
+packages:
+	@pipenv install --default
+
+.dev:
+	@pipenv install --dev
 	@pre-commit install
 
-welcome: dep .create_env .precommit
+welcome: dep .create_env
 
 lint:
 	@flake8 ... --count --max-complexity=10 --max-line-length=127 --statistics
