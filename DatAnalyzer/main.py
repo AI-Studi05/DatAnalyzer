@@ -2,6 +2,7 @@ from pipeline import cleaners
 from pipeline import regression
 from pipeline import formatters
 from pipeline import transformers
+import sys
 
 
 def process(data_path, y_column, scaling_method, regression_model, random_state, column_name=None):
@@ -59,13 +60,94 @@ def all(tabnum, protocols):
                         "| %f" % (result["MSE"]),
                         "| %f" % (result["RMSE"]),
                     )
+                    step += 1
 
-        return len(protocols)
+        return step
 
 
 def main():
-    return
+    """Main function to be called from the command-line"""
+
+    import argparse
+
+    example_doc = """\
+examples:
+    1. Returns all tables in the original report:
+       $ rr-paper
+    2. Only prints results for protocol "proto2":
+       $ rr-paper --protocol=proto2
+    3. Only prints results for protocol "proto1" and combinations of
+       variables 3 by 3:
+       $ rr-paper --protocol=proto1 --case=3
+    """
+
+    parser = argparse.ArgumentParser(
+        usage="%(prog)s [options]",
+        description="Performs Logistic Regression on Iris Flowers Dataset",
+        epilog=example_doc,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+
+    parser.add_argument(
+        "-p",
+        "--preprocess",
+        choices=["min-max", "z-normalisation", "Polynomial"],
+        nargs="*",
+        default=["min-max", "z-normalisation", "Polynomial"],
+        help="Choose the preprocessing method. If you choose '1', then "
+        "you choose the min-max scaling method for your the dataset "
+        "If you choose '2', then you chooses the z-normalisation scaling"
+        "method for your the dataset. If you choose '3', then you  "
+        "chooses the min-max and z-normalisation (Polynomial) scaling "
+        "method for  your the dataset. By default, if no specific"
+        "method, it prints all methods ",
+    )
+
+    parser.add_argument(
+        "-p",
+        "--protocol",
+        choices=["proto1", "proto2"],
+        nargs="*",
+        default=["proto1", "proto2"],
+        help="Defines which protocol you want to use. We use three different "
+        "random state for our result. Random state are 123, 456 and 789."
+        "By default, if no specific method, it prints all protocols",
+    )
+
+    parser.add_argument(
+        "-d",
+        "--dataset",
+        choices=["House", "White_wine", "Red_wine"],
+        nargs="*",
+        default=["House", "White wine", "Red wine"],
+        help="Defines which Dataset you want to perform the regression. "
+        "We use three different Dataset. House, which is the price of "
+        "the house in Boston according to some criteria. White wine,"
+        "which is the quality of wine according to wine criteria."
+        "Red wine, which is the quality of wine according to wine criteria"
+        "By default, if no specific method, it prints all protocols",
+    )
+
+    parser.add_argument(
+        "-m",
+        "--model",
+        choices=["Linear_Regression", "Decision_Tree_Clasifier"],
+        nargs="*",
+        default=["Linear Regression", "Decision Tree Clasifier"],
+        help="Defines with which model you want to apply to your"
+        "dataset. Two models are available. Linear Regression"
+        "model, and the Decision Tree Classifier.",
+    )
+
+    # args = parser.parse_args()
+
+    # keeps a nice sequential table number
+
+    if len(sys.argv) > 1:
+        None
+    else:
+        all()
 
 
 if __name__ == "__main__":
-    main
+    main()
