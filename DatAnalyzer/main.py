@@ -25,7 +25,6 @@ def process(data_path, y_column, scaling_method, regression_model, random_state,
     model = regression.RegressionModel().regression(regression_model)
     model = model.fit(X_train, y_train)
     y_predict = model.predict(X_test)
-    print(len(y_test), len(y_predict))
     # Score and result of our model
     result = regression.RegressionModel().regression_results(y_test, y_predict)
     return result
@@ -33,15 +32,32 @@ def process(data_path, y_column, scaling_method, regression_model, random_state,
 
 def all():
     """Builds the first table of my report"""
-    step = 1
+    i = 0
     for name_of_state, state in regression.SPLIT_PROTOCOLS.items():
         for dataset, path in formatters.DATAFILE.items():
+            i += 1
+            print("\nTable %d: %s Dataset model for %s :" % (i, dataset, name_of_state))
+            print(60 * "-")
+            print(
+                "{:25s}".format(" "),
+                "{:25s}".format(" "),
+                "{:12s}".format("| Expl Var "),
+                "{:12s}".format("| r2"),
+                "{:12s}".format("| MAE"),
+                "{:12s}".format("| MSE"),
+                "{:12s}".format("| RMSE"),
+            )
+
             for preprocess_method in transformers.PPREPROCESS_PROTOCSOLS:
                 print(
-                    "\nTable %d: %s Dataset model for %s with %s preprocessing method:"
-                    % (step, dataset, name_of_state, preprocess_method)
+                    "{:25s}".format(preprocess_method),
+                    "{:25s}".format(" "),
+                    "{:12s}".format(" "),
+                    "{:12s}".format(" "),
+                    "{:12s}".format(" "),
+                    "{:12s}".format(" "),
+                    "{:12s}".format(" "),
                 )
-                print(60 * "-")
 
                 for regression_type in regression.REGRESSION_PROTOCOLS:
                     result = process(
@@ -53,16 +69,16 @@ def all():
                         column_name=formatters.COLUMN_NAME[dataset],
                     )
                     print(
-                        ("%-15s" % regression_type),
-                        "| %f" % (result["explained_variance"]),
-                        "| %f" % (result["r2"]),
-                        "| %f" % (result["MAE"]),
-                        "| %f" % (result["MSE"]),
-                        "| %f" % (result["RMSE"]),
+                        "{:25s}".format(" "),
+                        "{:25s}".format(regression_type),
+                        "{:12s}".format("| %f" % (result["explained_variance"])),
+                        "{:12s}".format("| %f" % (result["r2"])),
+                        "{:12s}".format("| %f" % (result["MAE"])),
+                        "{:12s}".format("| %f" % (result["MSE"])),
+                        "{:12s}".format("| %f" % (result["RMSE"])),
                     )
-                    step += 1
 
-        return step
+    return i
 
 
 def main():
