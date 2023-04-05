@@ -2,6 +2,7 @@ Contributing
 ============
 
 Some rules to follow when contributing:
+
 * The *main* branch is protected, please create a new branch and a pull request for your changes
 * Follow the commit message and branching guidelines (see below)
 * Follow the code style, see the Google Python style `guide <https://google.github.io/styleguide/pyguide.html>`_
