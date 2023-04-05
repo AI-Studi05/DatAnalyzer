@@ -5,7 +5,7 @@ import sklearn.metrics as metrics
 import numpy as np
 
 REGRESSION_PROTOCOLS = ["Linear Regression", "Decision Tree Classifier"]
-SPLIT_PROTOCOLS = {"Radom state 1": 123, "Radom state 2": 456, "Radom state 3": 789}
+SPLIT_PROTOCOLS = {"Random state 1": 123, "Random state 2": 456, "Random state 3": 789}
 
 
 class RegressionModel(LinearRegression, DecisionTreeClassifier):
