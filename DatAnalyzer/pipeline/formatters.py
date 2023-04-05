@@ -2,7 +2,7 @@ import pandas as pd
 import os
 import numpy as np
 
-cwd = os.getcwd()
+cwd = os.path.dirname(__file__)
 
 DATAFILE = {
     "House": os.path.abspath(os.path.join(cwd, os.pardir, os.pardir, "ressources/raw_data/housing/housing.data")),
