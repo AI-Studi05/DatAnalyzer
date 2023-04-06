@@ -57,10 +57,11 @@ Specific Result
 =============
 In case you want specific result you can specify arguments when running the
 scripts. There are 4 arguments:
-  --protocols :Random_State1; Random_State_2; Random_State_3
-  --model : Linear_Regression; Decision_Tree_Classifier
-  --dataset : House; White_wine; Red_wine
-  --scaling : max_scaling, z-normalisation, polynomial_features
+
+  - protocols :Random_State1; Random_State_2; Random_State_3
+  - model : Linear_Regression; Decision_Tree_Classifier
+  - dataset : House; White_wine; Red_wine
+  - scaling : max_scaling, z-normalisation, polynomial_features
 
   In case there is no specification, it will run for all.
   Exemple:
