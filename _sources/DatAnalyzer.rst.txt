@@ -1,0 +1,23 @@
+DatAnalyzer package
+===================
+
+.. automodule:: DatAnalyzer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   DatAnalyzer.pipeline
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   DatAnalyzer.main

@@ -1,0 +1,7 @@
+DatAnalyzer.pipeline.transformers module
+========================================
+
+.. automodule:: DatAnalyzer.pipeline.transformers
+   :members:
+   :undoc-members:
+   :show-inheritance:

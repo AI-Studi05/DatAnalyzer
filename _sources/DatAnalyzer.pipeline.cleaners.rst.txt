@@ -1,0 +1,7 @@
+DatAnalyzer.pipeline.cleaners module
+====================================
+
+.. automodule:: DatAnalyzer.pipeline.cleaners
+   :members:
+   :undoc-members:
+   :show-inheritance:
