@@ -1,0 +1,7 @@
+DatAnalyzer.pipeline.regression module
+======================================
+
+.. automodule:: DatAnalyzer.pipeline.regression
+   :members:
+   :undoc-members:
+   :show-inheritance:

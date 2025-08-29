@@ -1,0 +1,7 @@
+DatAnalyzer.pipeline.formatters module
+======================================
+
+.. automodule:: DatAnalyzer.pipeline.formatters
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+DatAnalyzer.main module
+=======================
+
+.. automodule:: DatAnalyzer.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
